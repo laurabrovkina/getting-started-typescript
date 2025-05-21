@@ -1,2 +1,14 @@
 
 .qodo
+
+node_modules/\@types/node/
+
+node_modules/date-fns/_lib/
+
+node_modules/.bin/
+
+node_modules/\@tsconfig/bun/
+
+node_modules/
+
+.idea/
