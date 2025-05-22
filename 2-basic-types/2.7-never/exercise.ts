@@ -1,7 +1,7 @@
 // Exercise: Understanding the `never` type in TypeScript
 
 // 1. Type this function to return `never`.
-function error(message: string) {
+function error(message: string): never {
   throw new Error(message);
 }
 
@@ -24,6 +24,9 @@ function describeUser(user: User): string {
       return `An admin with privileges: ${user.privileges.join(", ")}.`;
     case "guest":
       return `A guest with ${user.visitCount} visits.`;
+    default:
+      const _exhaustiveCheck: never = user;
+      return _exhaustiveCheck;
   }
 }
 
@@ -33,3 +36,4 @@ function describeUser(user: User): string {
 // fail();
 // console.log(isString("test")); // Should return true
 // console.log(isString(123)); // Should throw an error
+
