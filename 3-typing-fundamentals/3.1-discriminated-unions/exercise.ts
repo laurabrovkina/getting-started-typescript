@@ -6,9 +6,26 @@
 // The function should return "A car with X doors." for car shapes,
 // "A truck with a payload capacity of Y." for truck shapes
 
-// Test cases
-// const car: Vehicle = { kind: "car", numberOfDoors: 4 };
-// const truck: Vehicle = { kind: "truck", payloadCapacity: 2000 };
+type Vehicle =
+    | { kind: "car"; numberOfDoors: number; }
+    | { kind: "truck"; payloadCapacity: number; };
 
-// console.log(describeVehicle(car)); // Should print the description of the car
-// console.log(describeVehicle(truck)); // Should print the description of the truck
+function describeVehicle(vehicle: Vehicle){
+    switch (vehicle.kind){
+        case "car":
+            return`A car with ${vehicle.numberOfDoors} doors.`;
+        case "truck":
+            return `A truck with a payload capacity of ${vehicle.payloadCapacity}.`;
+        default:
+            // Exhaustive check
+            const _exhaustiveCheck: never = vehicle;
+            return _exhaustiveCheck;
+    }
+}
+
+// Test cases
+const car: Vehicle = { kind: "car", numberOfDoors: 4 };
+const truck: Vehicle = { kind: "truck", payloadCapacity: 2000 };
+
+console.log(describeVehicle(car)); // Should print the description of the car
+console.log(describeVehicle(truck)); // Should print the description of the truck
