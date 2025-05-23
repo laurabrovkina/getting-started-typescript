@@ -19,4 +19,14 @@ function logPersonName(person: Person): void {
   return console.log(person.name);
 }
 
+const employee : Employee = {
+  name: "John Doe",
+  age: 25,
+  employeeId: 1
+}
+
+logPersonName(employee);
+
 // Question 2: Comment out the age property on Employee. What happens?
+// Argument of type 'Employee' is not assignable to parameter of type 'Person'.
+// Property 'age' is missing in type 'Employee' but required in type 'Person'.
